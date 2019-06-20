@@ -77,6 +77,28 @@ export default class MainView extends React.Component {
   render() {
     const {movies, user} = this.state;
 
+    if (!user) return (
+      <div>
+      <Navbar bg="info" variant="light">
+              <Navbar.Brand href="#home">myMovies</Navbar.Brand>
+              <Navbar.Text>
+                Please sign in
+              </Navbar.Text>
+              <Navbar.Collapse className="justify-content-end">
+                <Button
+                  variant="primary"
+                  type="submit"
+                  className = "button-logout"
+                  size="sm"
+                  onClick = {this.handleLogout}>
+                  Logout
+                </Button>
+              </Navbar.Collapse>
+            </Navbar>
+            <LoginView onLoggedIn={this.onLoggedIn}/>
+      </div>
+    )
+/*
     if (!movies) return (
       <div className = "main-view">
         <Navbar bg="info" variant="light">
@@ -95,9 +117,10 @@ export default class MainView extends React.Component {
                 </Button>
               </Navbar.Collapse>
             </Navbar>
+            <LoginView onLoggedIn={this.onLoggedIn}/>
       </div>
     )
-
+*/
     return (
       <div>
       <div>
